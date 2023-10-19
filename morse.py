@@ -22,20 +22,22 @@ class MorseTranslator:
         self.space = space
 
     def encode(self, text):
-        fragments = []
-        for char in text.upper():
-            fragment = self.space if char == " " else MorseTranslator._CHARS_TO_MORSE.get(char, "#")
-            fragment = fragment.replace(".", self.dot).replace("-", self.dash)
-            fragments.append(fragment)
+        fragments = [
+            self.space if char == " " else MorseTranslator._CHARS_TO_MORSE.get(char, "#")
+            .replace(".", self.dot)
+            .replace("-", self.dash)
+            for char in text.upper()
+        ]
         return self.separator.join(fragments)
 
     def decode(self, code):
         if not code:
             return ""
         fragments = code.split(self.separator)
-        chars = []
-        for fragment in fragments:
-            fragment = fragment.replace(self.dot, ".").replace(self.dash, "-")
-            char = " " if fragment == self.space else MorseTranslator._MORSE_TO_CHARS.get(fragment, "#")
-            chars.append(char)
+        chars = [
+            " " if fragment == self.space else MorseTranslator._MORSE_TO_CHARS.get(
+                fragment.replace(self.dot, ".").replace(self.dash, "-"), "#"
+            )
+            for fragment in fragments
+        ]
         return "".join(chars)
