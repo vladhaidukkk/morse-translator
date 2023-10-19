@@ -30,6 +30,8 @@ class MorseTranslator:
         return self.separator.join(fragments)
 
     def decode(self, code):
+        if not code:
+            return ""
         fragments = code.split(self.separator)
         chars = []
         for fragment in fragments:
