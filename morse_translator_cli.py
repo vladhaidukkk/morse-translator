@@ -1,5 +1,5 @@
 import argparse
-from morse import MorseTranslator
+from morse_translator import MorseTranslator
 
 
 def create_parser():

@@ -1,6 +1,6 @@
 import unittest
 from parameterized import parameterized
-from morse import MorseTranslator
+from morse_translator import MorseTranslator
 
 
 class TestMorseTranslator(unittest.TestCase):

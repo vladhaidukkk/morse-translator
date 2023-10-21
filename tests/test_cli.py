@@ -1,6 +1,6 @@
 import unittest
 from parameterized import parameterized
-from cli import create_parser, process_args
+from morse_translator_cli import create_parser, process_args
 
 
 class TestCLI(unittest.TestCase):
