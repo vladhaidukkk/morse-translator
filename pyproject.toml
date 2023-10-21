@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "morse_code_translator"
+version = "0.0.1"
+
+[project.scripts]
+morse_code_translator = "morse_code_translator:main"
+
+[tool.setuptools]
+py-modules = ["morse_code_translator"]
+packages = ["morse"]
